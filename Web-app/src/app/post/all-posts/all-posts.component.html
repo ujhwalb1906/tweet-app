@@ -1,0 +1,9 @@
+<div>
+  <app-post-info *ngFor="let post of allPosts; let i = index " (reloadAllPosts)="reloadAllPosts()" [post]="post" [i]="i">
+  </app-post-info>
+  <div *ngIf="!(allPosts.length > 0)" class="jumbotron jumbotron-fluid  alert-post">
+    <div class="text-muted">
+      No posts Available for this user...
+    </div>
+  </div>
+</div>

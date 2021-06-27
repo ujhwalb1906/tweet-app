@@ -1,0 +1,26 @@
+.card{
+    max-width: 400px;
+    margin: auto ; 
+    margin-top: 100px;
+}
+
+.card-body {
+    padding-bottom: 0px;
+}
+
+.bg-custom {
+    background: linear-gradient(to left, #4B0082, #811d8a)
+}
+
+.bg-purple {
+    background-color:  #4B0082;
+}
+
+
+.search-box-radius {
+    border-radius: 4px 0 0 4px;
+}
+
+.search-icon-radius {
+    border-radius: 0 4px 4px 0;
+}

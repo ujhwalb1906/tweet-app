@@ -1,0 +1,17 @@
+<div>
+
+    <app-post-info *ngFor="let post of userPosts; let i = index" (reloadUserPosts)="reloadUserPosts()" [post]="post" [i]="i">
+    </app-post-info>
+    
+    <div *ngIf='sessionTimedOut' class="jumbotron jumbotron-fluid  login-expired">
+        <div class="text-muted">
+            Opps! Session got expired... please login to continue...
+        </div>
+    </div>
+
+    <div *ngIf="!(userPosts.length > 0) && !sessionTimedOut" class="jumbotron jumbotron-fluid  alert-post">
+        <div class="text-muted">
+          No posts Available for the user...
+        </div>
+      </div>
+</div>

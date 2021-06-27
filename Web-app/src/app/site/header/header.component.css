@@ -1,0 +1,25 @@
+.bg-custom {
+    background: linear-gradient(to left, #B80A32, #B80A32)
+}
+
+.bg-inherit-from-parent {
+    background-color: inherit;
+}
+
+.search-box-radius {
+    border-radius: 4px 0 0 4px;
+}
+
+.search-icon-radius {
+    border-radius: 0 4px 4px 0;
+}
+
+.searchbar {
+    width: auto;
+}
+
+.cursorPointer{
+    cursor: pointer;
+}
+
+

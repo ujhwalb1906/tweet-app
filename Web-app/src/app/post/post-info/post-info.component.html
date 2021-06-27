@@ -1,0 +1,77 @@
+<div class="card mb-2">
+    <div class="user-profile mb-1">
+        <img src="assets/snow.jpg" alt="Avatar">
+        <span class="ml-2"> {{post.author}} </span>
+        <a class="text-muted" *ngIf="isUserValid(post.author)" data-toggle="collapse" href="#List-{{ i }}">
+            <i class="edit_post material-icons" aria-expanded="false">more_vert</i></a>
+        <div class="collapse post_time pointer" id="List-{{ i }}">
+            <small class="dropdown-item"> <a (click)="editPost(post.id)">Edit Post</a></small>
+            <small class="dropdown-item"> <a (click)="deletePost(post.id)">Delete Post</a></small>
+        </div>
+    </div>
+    <!-- <div class="card_top loading-top">
+        <div class="spinner-border loading-icon" *ngIf="isDeletedPost" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <img src="assets/snow.jpg" alt="{{post.author}}">
+    </div> -->
+    <div class="card-body body_padding">
+        
+        <div>
+            <span class="font-weight-bold">{{post.author}}</span> {{post.postMessage}}
+            <br>
+            <span *ngIf="post.hasTag">#{{post.hasTag}}</span>
+        </div>
+        <div>
+            <span> <i class="like-symbol material-icons" (click)="addLikeToPost(post.id)">favorite_border</i> </span>
+            <!-- <a class="mt-1 text-muted" data-toggle="collapse" href="#comments_section{{i}}"> <i
+                    class="material-icons comment-symbol">view_comment</i></a> -->
+            <small class="post_time text-muted mt-1"> {{post.dateOfPost | dateAgo}} </small>
+        </div>
+        <div>
+            <small>{{post.likesCount}}</small> <small> likes</small>
+        </div>
+        <div>
+            <small class="pointer">
+                <div *ngIf="(post.comments.length > 0)"> <a class="text-muted" data-toggle="collapse"
+                        href="#comments_section{{i}}" aria-expanded="true">View All Comments</a>
+                </div>
+            </small>
+        </div>
+        <div>
+
+            <div class="comment_indent">
+                <div *ngFor="let comment of post.comments">
+                    <div *ngIf = "(comment.dateOfComment | dateAgo) == 'Just now'">
+                        <span class="font-weight-bold">{{comment.author}} </span>
+                        <span class="text-break">{{comment.commentMessage}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment_indent collapse" id="comments_section{{i}}">
+                <div *ngIf="!(post.comments.length > 0)">
+                    <span class="font-weight-bold">no comments available.. be first one to add comment. </span>
+                </div>
+                <div *ngFor="let comment of post.comments">
+                    <div *ngIf="(comment.dateOfComment | dateAgo) != 'Just now'">
+                        <span class="font-weight-bold">{{comment.author}} </span>
+                        <span class="text-break">{{comment.commentMessage}}
+                        </span>
+                    </div>                   
+                </div>
+            </div>
+        </div>
+        <div class="mt-1" *ngIf="isAuthenticated()">
+            <input type="text" class="comment-input" placeholder="Add your comment." [(ngModel)]="comment"
+                name="comment">
+            <button class="btn bg-purple text-light btn-sm post_time" (click)="addcomment(post.id)">Post</button>
+        </div>
+        <div class="mt-1" *ngIf="commentflag">
+            <div class="alert alert-secondary">
+                posting.......
+            </div>
+        </div>
+    </div>
+</div>

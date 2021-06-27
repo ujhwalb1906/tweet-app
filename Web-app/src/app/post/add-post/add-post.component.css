@@ -1,0 +1,10 @@
+.bg-purple {
+    background-color:  #4B0082;
+}
+
+.card {
+    width: 30%;
+    margin: auto;
+    margin-top: 100px;
+    /* border: 0; */
+}
